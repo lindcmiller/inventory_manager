@@ -15,6 +15,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params[:item].permit(:name, :price, :quantity, :shelf_life_days)
+    params[:item].permit(:name, :price, :quantity, :shelf_life_days, :stock_code)
   end
 end
