@@ -5,15 +5,17 @@
       <th>Price</th>
       <th>Quantity</th>
       <th>Expires</th>
+      <th>Stock Code</th>
     </tr>
   </thead>
   <tbody>
-  <% Item.all.select{ |item| item.expires > Date.today }.each do |item| %>
+  <% @items.each do |item| %>
     <tr>
       <td><%= item.name %></td>
       <td>$<%= Money.us_dollar(item.price) %></td>
       <td><%= item.quantity %></td>
       <td><%= item.expires %></td>
+      <td><%= item.stock_code %></td>
     </tr>
   <% end %>
   </tbody>

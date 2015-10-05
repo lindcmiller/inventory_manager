@@ -12,6 +12,10 @@ class ItemsController < ApplicationController
     redirect_to :root
   end
 
+  def destroy
+
+  end
+
   private
 
   def item_params
