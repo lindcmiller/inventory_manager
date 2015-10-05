@@ -5,32 +5,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @items = Item.all
-    if item_params[:name].blank?
-      @item = Item.new
+    @item = Item.create(item_params)
+    if !@item.save
       flash[:error] = "Invalid"
-      render :home and return
     end
-    if item_params[:price].blank?
-      @item = Item.new
-      flash[:error] = "Invalid"
-      render :home and return
-    end
-    if item_params[:quantity].blank?
-      @item = Item.new
-      flash[:error] = "Invalid"
-      render :home and return
-    end
-    if item_params[:shelf_life_days].blank?
-      @item = Item.new
-      flash[:error] = "Invalid"
-      render :home and return
-    end
-    if !(@item = Item.create(item_params))
-    else
-      @item = Item.new
-    end
-    render :home
+    redirect_to :root
   end
 
   private

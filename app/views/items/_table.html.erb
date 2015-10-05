@@ -1,0 +1,20 @@
+<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% Item.all.select{ |item| item.expires > Date.today }.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td>$<%= Money.us_dollar(item.price) %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.expires %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
