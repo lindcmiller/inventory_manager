@@ -1,12 +1,16 @@
 class CategoriesController < ApplicationController
+
   def create
-    Category.create(category_params)
-    redirect_to root_path
+    @category = Category.create(category_params)
+    if !@category.save
+      flash[:error] = "Invalid"
+    end
+    redirect_to :root
   end
 
   private
 
   def category_params
-    params[:category].permit!
+    params[:category].permit(:name)
   end
 end
