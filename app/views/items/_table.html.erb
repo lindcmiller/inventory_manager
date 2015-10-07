@@ -6,6 +6,7 @@
       <th>Quantity</th>
       <th>Expires</th>
       <th>Stock Code</th>
+      <th>Delete Item</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <td><%= item.quantity %></td>
       <td><%= item.expires %></td>
       <td><%= item.stock_code %></td>
+      <td><%= link_to (image_tag("trash.jpg", height: '22', width: '20')), item, method: :delete, data: { confirm: "Are you sure you want to delete #{item.name}?" } %></td>
     </tr>
   <% end %>
   </tbody>

@@ -12,11 +12,11 @@ class ItemsController < ApplicationController
     redirect_to :root
   end
 
-  # def destroy
-  #   item = Item.find(params[:id])
-  #   item.destroy
-  #   redirect_to :root
-  # end
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to :root
+  end
 
   private
 
