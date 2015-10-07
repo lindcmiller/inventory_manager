@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def home
     @item = Item.new
-    @items = Item.all 
+    @items = Item.all
   end
 
   def create
@@ -12,13 +12,15 @@ class ItemsController < ApplicationController
     redirect_to :root
   end
 
-  def destroy
-
-  end
+  # def destroy
+  #   item = Item.find(params[:id])
+  #   item.destroy
+  #   redirect_to :root
+  # end
 
   private
 
   def item_params
-    params[:item].permit(:name, :price, :quantity, :shelf_life_days, :stock_code)
+    params[:item].permit(:name, :price, :quantity, :shelf_life_days, :category_id, :stock_code)
   end
 end

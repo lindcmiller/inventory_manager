@@ -5,4 +5,8 @@ class Item < ActiveRecord::Base
   def expires
     Date.today + shelf_life_days.days
   end
+
+  def self.not_expired
+    all.select{ |item| item.expires > Date.today }
+  end
 end
