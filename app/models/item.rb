@@ -1,3 +1,4 @@
+
 class Item < ActiveRecord::Base
   belongs_to :category
   validates :name, :price, :quantity, :shelf_life_days, :stock_code, :presence => true
