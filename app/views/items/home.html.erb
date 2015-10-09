@@ -1,9 +1,19 @@
 <p> <%= flash[:error] %> </p>
 
-<%= render :partial => 'search' %>
+<div class="row">
+  <%= render 'form' %>
+</div>
 
-<%= render :partial => 'form' %>
+<div class="row">
+  <%= render 'category' %>
+</div>
 
-<%= render :partial => 'category' %>
+<hr>
 
-<%= render :partial => 'table' %>
+<div class-"row">
+  <%= render 'search' %>
+</div>
+
+<div class="row table">
+  <%= render 'table' %>
+</div>
