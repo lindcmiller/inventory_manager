@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def home
     @item = Item.new
-    @items = Item.all
+    @items = Item.search(params[:search]).not_expired
   end
 
   def create
