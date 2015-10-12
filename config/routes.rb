@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :items, only: [:create, :update, :destroy]
 
   post '/categories', to: 'categories#create'
+  get '/categories', to: 'categories#create'
+  post '/new', to: 'items#create'
 end
