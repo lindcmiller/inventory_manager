@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   validates :name, :price, :quantity, :shelf_life_days, :stock_code, :presence => true
 
   def expires
-    Date.today + shelf_life_days.days
+    created_at + shelf_life_days.days
   end
 
   def self.not_expired
@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.search(search)
-    if search     
+    if search
       where("name like ?", "%#{search}%")
     else
      Item.all
